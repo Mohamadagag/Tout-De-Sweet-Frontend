@@ -1,0 +1,31 @@
+.terms-container {
+  margin-top: 280px;
+  padding: 0 200px;
+}
+
+.terms-container h1 {
+  font-family: "Avenir Next";
+  margin-bottom: 50px;
+  color: #35464f;
+}
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root.Mui-expanded {
+  border-radius: 5px;
+}
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root:first-of-type {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+@media only screen and (max-width: 930px) {
+  .terms-container {
+    padding: 0 100px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .terms-container {
+    padding: 0 20px;
+  }
+}

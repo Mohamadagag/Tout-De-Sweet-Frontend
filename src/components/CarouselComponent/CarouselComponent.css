@@ -1,0 +1,77 @@
+.carousel-caption {
+  top: 40%;
+}
+
+.w-100 {
+  height: 600px;
+}
+
+.carousel-order-btn {
+  text-decoration: none;
+  color: #35464f;
+  background-color: #f2f2f2;
+  padding: 5px 20px;
+  width: 200px;
+  border-radius: 10px;
+  font-family: "Avenir Next";
+  letter-spacing: 1px;
+}
+
+.carousel-order-btn:hover {
+  cursor: pointer;
+  color: #35464f;
+  background-color: #c66c8a;
+  color: #fff;
+}
+
+.carousel-caption p {
+  margin-bottom: 7rem !important;
+}
+
+.carousel-title {
+  font-family: "Avenir Next";
+}
+
+.carousel-description {
+  font-family: "Avenir";
+}
+
+.carousel-title {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.carousel-caption {
+  max-width: 70ch;
+  font-size: 1.1rem;
+  margin: 0 auto;
+}
+
+.carousel-inner div:nth-child(2) .carousel-caption .carousel-title,
+.carousel-inner div:nth-child(2) .carousel-caption .carousel-description {
+  color: #35464f;
+}
+
+@media only screen and (max-width: 1875px) {
+  .carousel-caption {
+    top: 40%;
+  }
+}
+
+@media only screen and (max-width: 1198px) {
+  .carousel-caption {
+    top: 42%;
+  }
+}
+
+@media only screen and (max-width: 1008px) {
+  .carousel-caption {
+    top: 41%;
+  }
+}
+
+@media only screen and (max-width: 1008px) {
+  .carousel-caption {
+    top: 30%;
+  }
+}

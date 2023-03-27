@@ -1,0 +1,64 @@
+.shop-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shop-product-image {
+  width: 200px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.shop-product-image img {
+  border-radius: 5px;
+}
+
+.product-name {
+  font-family: "Avenir";
+  margin-top: 10px;
+}
+
+.product-price {
+  margin-top: 5px;
+  font-family: "Avenir";
+  color: #000;
+}
+
+.product-name {
+  color: #964078;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.skeleton-grid {
+  margin-top: -200px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 50px;
+}
+
+@media only screen and (max-width: 1216px) {
+  .skeleton-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 1028px) {
+  .skeleton-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .skeleton-grid {
+    grid-column-gap: 20px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .skeleton-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

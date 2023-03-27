@@ -1,0 +1,186 @@
+.product-details {
+  margin-left: 100px;
+  margin-bottom: 50px;
+  padding: 0 10px;
+}
+
+.shop-breadcrumb {
+  margin-left: 100px;
+}
+
+.image-description {
+  object-fit: cover;
+}
+
+.description-price h2 {
+  font-family: "Avenir";
+  margin-top: 40px;
+  color: #536974;
+}
+
+.product-desc {
+  text-align: justify;
+  max-width: 53ch;
+  margin-top: 20px;
+  letter-spacing: 1px;
+  font-family: "Avenir";
+}
+
+.description-price p:last-child {
+  font-family: "Avenir";
+  margin-top: 20px;
+  color: #536974 !important;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.seperate {
+  border-top: 1px solid #954076;
+  border-top-width: 2px;
+  width: 150px;
+}
+
+.order-btn {
+  margin-left: 20px;
+  font-size: 14px;
+  background-color: #5a8080;
+  border: none;
+  padding: 10px;
+  font-family: "Avenir";
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.order-btn:hover {
+  color: #fff;
+}
+
+.image-only {
+  width: 500px;
+}
+
+.order-btn-cart {
+  margin-left: 20px;
+  padding: 9px;
+}
+
+.product-details {
+  display: flex;
+  align-items: center;
+}
+
+.cart-icons {
+  border: none;
+  background-color: transparent;
+}
+
+.add-rm-container {
+  border: 2px solid #000;
+  width: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.sum-container {
+  display: flex;
+  align-items: center;
+}
+
+.sum-container h5 {
+  margin: 0 20px 0 0;
+  font-family: "Avenir";
+}
+
+.you-may-like-sec h1 {
+  font-family: "Avenir Next";
+  color: #35464f;
+  margin-left: 50px;
+}
+
+.you-make-like {
+  font-family: "Avenir Next";
+  margin-left: 140px;
+  color: #35464f;
+}
+
+.you-make-like-container {
+  margin-top: 80px;
+}
+
+.details-container {
+  margin-top: 270px;
+}
+
+@media only screen and (max-width: 2100px) {
+  .you-make-like {
+    margin-left: 100px;
+  }
+}
+
+@media only screen and (max-width: 2100px) {
+  .you-make-like {
+    margin-left: 100px;
+  }
+}
+
+@media only screen and (max-width: 1700px) {
+  .you-make-like {
+    margin-left: 60px;
+  }
+}
+
+@media only screen and (max-width: 1040px) {
+  .product-details {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .image-only {
+    width: 600px;
+  }
+
+  .product-details {
+    flex-direction: column;
+  }
+
+  .shop-breadcrumb {
+    margin-left: 60px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .image-only {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .product-details {
+    margin-left: 50px;
+  }
+
+  .image-only {
+    width: 300px;
+  }
+
+  .shop-breadcrumb {
+    margin-left: 20px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .you-make-like {
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (max-width: 368px) {
+  .product-details {
+    margin-left: 10px;
+  }
+}

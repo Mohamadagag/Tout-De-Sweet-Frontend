@@ -1,0 +1,254 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: #fff;
+  padding-bottom: 10px;
+}
+
+.top-header {
+  background-color: rgb(53, 70, 79) !important;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.main-header {
+  height: 115px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.logo img {
+  height: 100px;
+  object-fit: cover;
+}
+
+.sm-logo img {
+  height: 60px;
+}
+
+.icons {
+  display: flex;
+  position: absolute;
+  right: 7rem;
+}
+
+.shopping-icon:hover {
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+.shopping-icon {
+  margin-left: 20px;
+  transform: rotateY(180deg);
+}
+
+nav {
+  margin-top: 20px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  margin-left: 20px;
+  color: #000;
+  letter-spacing: 2px;
+}
+
+nav ul li a:hover,
+nav ul a.active {
+  color: #be657e;
+}
+
+ul {
+  padding-left: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+*:focus {
+  outline: none;
+}
+
+.hide-nav {
+  display: none;
+}
+
+.cart {
+  position: absolute;
+  right: 0;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 100;
+  padding: 20px 10px;
+}
+
+.mask_opened {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 400;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.cart-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.close-icon {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.quantity-btns button {
+  border: none;
+  background-color: transparent;
+}
+
+.amount-toggle {
+  margin-top: 5px;
+  border: 1px solid;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 15px;
+  width: 150px;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: scroll;
+  width: 320px;
+}
+
+.cart-total {
+  height: 50px;
+}
+
+.cart-title h3,
+.total-container span,
+.total-container p,
+.checkout-container a,
+nav ul li a {
+  font-family: "Avenir";
+}
+
+.total-container p {
+  font-weight: 900;
+}
+
+.bottom-cart-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checkout-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.checkout-container a {
+  background-color: #5a8080;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+}
+
+.checkout-container a:hover {
+  color: #fff;
+  opacity: 0.7;
+}
+
+.cart-item-price {
+  font-size: 0.8rem;
+}
+
+.hide-top-section {
+  display: none;
+}
+
+.show-top-section {
+  display: block;
+}
+
+.promotion-container {
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.promotion-section-numbers {
+  display: flex;
+}
+
+.promotion-section-numbers p {
+  margin-bottom: 0;
+}
+
+.second-number {
+  margin-left: 20px;
+}
+
+.promotion-section-numbers a,
+.promotion-section-numbers a:hover {
+  font-family: "Avenir";
+  font-size: 0.8rem;
+  color: #5a8080;
+}
+
+.promotion-icons {
+  margin-right: 5px;
+  font-size: 1rem;
+}
+
+.promotion-tiktok-icon {
+  font-size: 1.2rem;
+}
+
+.promotion-icon {
+  color: #5a8080;
+}
+
+.nv-you-may-like p {
+  font-family: "Avenir Next";
+  margin: 0;
+  color: #35464f;
+  margin-bottom: 10px;
+}
+
+.nav-search {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 424px) {
+  .show-top-section {
+    display: none;
+  }
+}

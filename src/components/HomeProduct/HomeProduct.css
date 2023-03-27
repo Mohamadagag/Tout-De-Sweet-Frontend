@@ -1,0 +1,38 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product img {
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.name {
+  margin-top: 15px;
+  color: #be657e;
+  font-size: 1.4rem;
+  font-family: "Avenir";
+  font-weight: 600;
+}
+
+.price {
+  margin-top: 10px;
+  font-family: "Avenir";
+  color: #000;
+}
+
+.home-image-container {
+  width: 270px;
+}
+
+@media only screen and (max-width: 350px) {
+  .product img {
+    width: 220px;
+  }
+
+  .name {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenir"), url("./fonts/Avenir.ttc");
+}
+
+@font-face {
+  font-family: "Avenir Next Condensed";
+  src: local("Avenir Next Condensed"),
+    url("./fonts/Avenir\ Next\ Condensed.ttc");
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: local("Avenir Next"), url("./fonts/Avenir\ Next.ttc");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Roboto;
+}
+
+img {
+  width: 100%;
+  object-fit: cover !important;
+  display: block;
+  height: auto;
+}
+
+a {
+  text-decoration: none !important;
+}

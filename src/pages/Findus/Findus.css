@@ -1,0 +1,332 @@
+.findus-container {
+  margin-top: 290px;
+}
+
+.first-section {
+  position: relative;
+  display: inline-block;
+  margin-left: 30%;
+}
+
+.left-side {
+  display: flex;
+}
+
+.left-side {
+  width: 500px;
+  height: 500px;
+}
+
+.form-icons {
+  display: flex;
+}
+
+.form-icon-color {
+  color: #7b9999 !important;
+}
+
+.form-icon-btn {
+  display: flex;
+  justify-content: flex-end;
+  font-family: "Avenir Next";
+  margin-top: 10px;
+}
+
+.form-btn {
+  border: none;
+  padding: 5px 70px;
+  color: #7b9999;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.right-side {
+  position: absolute;
+  top: 5%;
+  right: -75%;
+  background-color: #fff;
+  padding: 50px 150px 30px 40px;
+  -webkit-box-shadow: 3px 1px 8px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 1px 8px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 1px 8px 0px rgba(0, 0, 0, 0.75);
+}
+
+.open,
+.time {
+  color: #9eb4b4;
+  font-family: "Avenir";
+  font-weight: 600;
+}
+
+.day {
+  font-family: "Avenir";
+}
+
+.time {
+  font-size: 1.5rem;
+}
+
+.right-side div {
+  margin-top: 30px;
+}
+
+.right-side div:first-child {
+  margin-top: 0;
+}
+
+.second-section {
+  margin-top: 60px;
+  display: flex;
+  color: #fff;
+}
+
+.second-section-first {
+  background-color: #7b9999;
+  padding-bottom: 10px;
+}
+
+.second-section p {
+  font-family: "Avenir";
+}
+
+.second-section form {
+  padding: 2rem 3rem 0 3rem;
+}
+
+.second-section-first h1 {
+  font-family: "Avenir Next";
+}
+
+.second-section-first p {
+  font-family: "Avenir";
+}
+
+.second-section form input,
+.second-section form textarea {
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 15px;
+  padding: 15px 20px;
+  font-family: "Avenir";
+}
+
+.form-email input,
+.second-section form textarea {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.form-email ::placeholder,
+.form-name ::placeholder,
+.second-section form textarea::placeholder {
+  color: #adadad;
+  font-family: "Avenir";
+}
+
+.form-name {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.second-section-second,
+.second-section-first {
+  width: 50%;
+}
+
+.second-section-second img {
+  height: 100%;
+}
+
+.move-form-icon {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.form-name input {
+  width: 49%;
+}
+
+.second-section form {
+  padding: 4rem 13rem 0 13rem;
+}
+
+@media only screen and (max-width: 2248px) {
+  .second-section form {
+    padding: 4rem 7rem 0 7rem;
+  }
+}
+
+@media only screen and (max-width: 1948px) {
+  .second-section form {
+    padding: 4rem 5rem 0 5rem;
+  }
+}
+
+@media only screen and (max-width: 1900px) {
+  .first-section {
+    margin-left: 28%;
+  }
+}
+
+@media only screen and (max-width: 1669px) {
+  .first-section {
+    margin-left: 25%;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .second-section form {
+    padding: 3rem 3rem 0 3rem;
+  }
+}
+
+@media only screen and (max-width: 1432px) {
+  .first-section {
+    margin-left: 18%;
+  }
+}
+
+@media only screen and (max-width: 1261px) {
+  .first-section {
+    margin-left: 14%;
+  }
+}
+
+@media only screen and (max-width: 1220px) {
+  .second-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .second-section-second {
+    margin-top: 20px;
+  }
+
+  .second-section form {
+    padding: 2rem 1rem 0 1rem;
+  }
+}
+
+@media only screen and (max-width: 1187px) {
+  .first-section {
+    margin-left: 11%;
+  }
+}
+
+@media only screen and (max-width: 1109px) {
+  .first-section {
+    margin-left: 8%;
+  }
+
+  .right-side,
+  .second-section-first,
+  .second-section-second {
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width: 1065px) {
+  .first-section {
+    margin-left: 6%;
+  }
+}
+
+@media only screen and (max-width: 1042px) {
+  .form-name {
+    flex-direction: column;
+  }
+
+  .form-name input:first-child {
+    margin-bottom: 10px;
+  }
+
+  .second-section-first input {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1035px) {
+  .first-section {
+    margin-left: 0%;
+  }
+}
+
+@media only screen and (max-width: 1010px) {
+  .findus-container {
+    padding: 0 20px;
+  }
+  .first-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .right-side {
+    position: static;
+    margin-top: 40px;
+    padding: 50px 0 30px 20px;
+  }
+}
+
+@media only screen and (max-width: 604px) {
+  .left-side,
+  .right-side,
+  .second-section-first,
+  .second-section-second {
+    width: 525px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .left-side,
+  .right-side,
+  .second-section-first,
+  .second-section-second {
+    width: 495px;
+  }
+}
+
+@media only screen and (max-width: 510px) {
+  .left-side,
+  .right-side,
+  .second-section-first,
+  .second-section-second {
+    width: 470px;
+  }
+}
+
+@media only screen and (max-width: 485px) {
+  .left-side,
+  .right-side,
+  .second-section-first,
+  .second-section-second {
+    width: 440px;
+  }
+}
+
+@media only screen and (max-width: 449px) {
+  .left-side,
+  .right-side,
+  .second-section-first,
+  .second-section-second {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  .left-side,
+  .right-side,
+  .second-section-first,
+  .second-section-second {
+    width: 370px;
+  }
+}
+
+@media only screen and (max-width: 382px) {
+  .left-side,
+  .right-side,
+  .second-section-first,
+  .second-section-second {
+    width: 340px;
+  }
+}

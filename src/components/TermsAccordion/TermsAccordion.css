@@ -1,0 +1,27 @@
+.accordion-space {
+  margin-bottom: 20px !important;
+  font-family: "Avenir";
+  color: #566c7e;
+}
+
+.accodion-list div {
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root:before {
+  display: none;
+}
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root:first-of-type {
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+}
+
+.css-ahj2mt-MuiTypography-root {
+  font-family: "Avenir" !important;
+}
+
+.css-67l5gl::before {
+  display: none !important;
+}

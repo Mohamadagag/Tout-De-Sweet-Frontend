@@ -1,0 +1,18 @@
+.cart-rnd-container {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.cart-rnd-container img {
+  width: 120px;
+  margin-right: 20px;
+}
+
+.cart-rnd-container p {
+  margin-bottom: 0;
+  font-family: "Avenir";
+  color: #000;
+}
