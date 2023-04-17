@@ -168,70 +168,68 @@ const Navbar = () => {
           <Cart handleClick={openCart} />
         </div>
       </div>
-      {isOpen ? (
-        <div className="mask_opened">
-          <div className="cart">
-            <div>
-              <div className="cart-title">
-                <h3>Shopping cart</h3>
-                <span>
-                  <GrFormClose
-                    className="close-icon"
-                    onClick={() => setIsOpen(false)}
-                  />
-                </span>
-              </div>
-              <hr />
-              <div className="cart-products">
-                {cartItems &&
-                  cartItems.map((item) => (
-                    <>
-                      <div>
-                        <CartItem key={item._id} {...item} />
-                        <hr />
-                      </div>
-                    </>
-                  ))}
-              </div>
+      <div className={`${isOpen ? "mask_opened" : ""}`}>
+        <div className={`cart ${isOpen ? "active-cart" : ""}`}>
+          <div>
+            <div className="cart-title">
+              <h3>Shopping cart</h3>
+              <span>
+                <GrFormClose
+                  className="close-icon"
+                  onClick={() => setIsOpen(false)}
+                />
+              </span>
             </div>
-            <div>
-              <div className="nv-you-may-like">
-                <p>You may also like</p>
-                <Carousel responsive={responsive}>
-                  {rndData &&
-                    rndData.map((item, i) => {
-                      return (
-                        <Link to={`/shop/${item._id}`}>
-                          <CartRndItem
-                            key={i}
-                            image={item.image}
-                            name={item.name}
-                            price={item.price}
-                          />
-                        </Link>
-                      );
-                    })}
-                </Carousel>
+            <hr />
+            <div className="cart-products">
+              {cartItems &&
+                cartItems.map((item) => (
+                  <>
+                    <div>
+                      <CartItem key={item._id} {...item} />
+                      <hr />
+                    </div>
+                  </>
+                ))}
+            </div>
+          </div>
+          <div>
+            <div className="nv-you-may-like">
+              <p>You may also like</p>
+              <Carousel responsive={responsive}>
+                {rndData &&
+                  rndData.map((item, i) => {
+                    return (
+                      <Link to={`/shop/${item._id}`}>
+                        <CartRndItem
+                          key={i}
+                          image={item.image}
+                          name={item.name}
+                          price={item.price}
+                        />
+                      </Link>
+                    );
+                  })}
+              </Carousel>
+            </div>
+            <div className="bottom-cart-container">
+              <div className="total-container">
+                <p>
+                  Total : <span>AED {cartTotal}.00</span>
+                </p>
               </div>
-              <div className="bottom-cart-container">
-                <div className="total-container">
-                  <p>
-                    Total : <span>AED {cartTotal}.00</span>
-                  </p>
-                </div>
-                <div className="checkout-container">
-                  <a
-                    target="_blank"
-                    href={`https://wa.me/971501077848?text=Hi TDS, I came from your website. I want to order ${cartItemDetails}`}
-                  >
-                    Checkout
-                  </a>
-                </div>
+              <div className="checkout-container">
+                <a
+                  target="_blank"
+                  href={`https://wa.me/971501077848?text=Hi TDS, I came from your website. I want to order ${cartItemDetails}`}
+                >
+                  Checkout
+                </a>
               </div>
             </div>
           </div>
         </div>
-      ) : null}
+      </div>
       <div className="main-header">
         <div className={"logo"}>
           <NavLink to="/">

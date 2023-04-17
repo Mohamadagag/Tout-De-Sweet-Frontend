@@ -87,10 +87,6 @@ ul {
   outline: none;
 }
 
-.hide-nav {
-  display: none;
-}
-
 .cart {
   position: absolute;
   right: 0;
@@ -98,6 +94,19 @@ ul {
   background-color: #fff;
   z-index: 100;
   padding: 20px 10px;
+  transform: translateX(100%);
+  transition: all 0.5s ease;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: scroll;
+  width: 320px;
+}
+
+.active-cart {
+  transform: translateX(0%);
+  opacity: 1;
 }
 
 .mask_opened {
@@ -120,6 +129,10 @@ ul {
   font-size: 1.5rem;
 }
 
+.cart-title span .close-icon:hover {
+  transform: rotate(180deg);
+}
+
 .quantity-btns button {
   border: none;
   background-color: transparent;
@@ -132,14 +145,6 @@ ul {
   justify-content: space-evenly;
   border-radius: 15px;
   width: 150px;
-}
-
-.cart {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow-y: scroll;
-  width: 320px;
 }
 
 .cart-total {

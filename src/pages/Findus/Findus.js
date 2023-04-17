@@ -49,11 +49,11 @@ const Findus = () => {
             </div>
             <div>
               <h3 className="day">Tuesday - Saturday</h3>
-              <span className="time">9:00 AM - 11:00 PM</span>
+              <span className="time">10:00 AM - 10:00 PM</span>
             </div>
             <div>
               <h3 className="day">Sunday</h3>
-              <span className="time">9:00 AM - 11:00 PM</span>
+              <span className="time">10:00 AM - 10:00 PM</span>
             </div>
             <div>
               <h3 className="day">Monday</h3>
