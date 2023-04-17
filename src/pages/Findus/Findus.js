@@ -41,7 +41,7 @@ const Findus = () => {
       <div className="findus-container">
         <div className="first-section">
           <div className="left-side">
-            <img src={LeftImage} />
+            <img src={LeftImage} alt="Left Side image" />
           </div>
           <div className="right-side">
             <div>
@@ -102,7 +102,7 @@ const Findus = () => {
             </form>
           </div>
           <div className="second-section-second">
-            <img src={Directions} draggable={false} />
+            <img src={Directions} alt="Location Pin" draggable={false} />
           </div>
         </div>
       </div>

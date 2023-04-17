@@ -129,13 +129,13 @@ ul {
   font-size: 1.5rem;
 }
 
-.cart-title span .close-icon:hover {
-  transform: rotate(180deg);
-}
-
 .quantity-btns button {
   border: none;
   background-color: transparent;
+}
+
+.disabled {
+  pointer-events: none;
 }
 
 .amount-toggle {
@@ -163,11 +163,13 @@ nav ul li a {
   font-weight: 900;
 }
 
+.cart-btm-container {
+  position: relative;
+}
+
 .bottom-cart-container {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #fff;
 }
 
 .checkout-container {

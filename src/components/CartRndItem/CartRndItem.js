@@ -3,7 +3,7 @@ const CartRndItem = ({ image, name, price }) => {
   return (
     <div className="cart-rnd-container">
       <div>
-        <img src={image} />
+        <img src={image} alt={name} />
       </div>
       <div>
         <p>{name}</p>

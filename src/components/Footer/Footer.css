@@ -105,6 +105,10 @@
   margin-top: 10px;
 }
 
+.send-button:hover {
+  opacity: 0.9;
+}
+
 .footer-terms {
   text-decoration: none;
   color: #995087;
@@ -147,7 +151,12 @@
 .i-icon:hover,
 .t-icon:hover {
   transform: translateY(-4px);
+  transition: 0.3s;
   color: #5a8080 !important;
+}
+
+form input[type="email"] {
+  font-family: "Avenir";
 }
 
 .css-9l3uo3 {
@@ -167,10 +176,6 @@
 .bottom-footer a:hover {
   color: #5a8080;
 }
-
-/* .bottom-footer-center a {
-  margin-left: 5px;
-} */
 
 @media only screen and (max-width: 1190px) {
   .footer-content {

@@ -10,7 +10,7 @@ const Accordion = ({ title, description, image }) => {
   return (
     <div className="image-container">
       <div className="image-hover-overlay" onClick={toogle}>
-        <img src={image} className="image" />
+        <img src={image} className="image" alt={title} />
         <div className="middle">
           <div className={show ? "text" : "text-move"}>{title}</div>
           <div className="description">

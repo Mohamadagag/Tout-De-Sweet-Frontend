@@ -134,7 +134,7 @@ const Home = () => {
               <div className="under-map-grid">
                 <div className="single-under-map-item">
                   <div className="single-under-map-item-img">
-                    <img src={pic1} />
+                    <img src={pic1} alt="Delivery - Cakes & Big orders" />
                   </div>
                   <div className="single-under-map-item-desc">
                     <h4>Delivery - Cakes & Big orders</h4>
@@ -148,7 +148,7 @@ const Home = () => {
                 </div>
                 <div className="single-under-map-item">
                   <div className="single-under-map-item-img">
-                    <img src={pic2} />
+                    <img src={pic2} alt="Delivery - Desserts & Bites" />
                   </div>
                   <div className="single-under-map-item-desc">
                     <h4>Delivery - Desserts & Bites</h4>
@@ -161,7 +161,7 @@ const Home = () => {
                 </div>
                 <div className="single-under-map-item">
                   <div className="single-under-map-item-img">
-                    <img src={pic3} />
+                    <img src={pic3} alt="Catering events" />
                   </div>
                   <div className="single-under-map-item-desc">
                     <h4>Catering events</h4>
@@ -175,7 +175,7 @@ const Home = () => {
                 </div>
                 <div className="single-under-map-item">
                   <div className="single-under-map-item-img">
-                    <img src={pic4} />
+                    <img src={pic4} alt="Hosting events" />
                   </div>
                   <div className="single-under-map-item-desc">
                     <h4>Hosting events</h4>

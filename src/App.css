@@ -9,3 +9,11 @@ p {
 .footer-whats footer {
   height: 60px;
 }
+
+.styles-module_whatsappButton__tVits:after {
+  animation: none !important;
+}
+
+.styles-module_whatsappButton__tVits:hover {
+  animation: styles-module__pulse__BJkE8 1.2s infinite !important;
+}

@@ -184,25 +184,26 @@ const Navbar = () => {
             <div className="cart-products">
               {cartItems &&
                 cartItems.map((item) => (
-                  <>
-                    <div>
-                      <CartItem key={item._id} {...item} />
-                      <hr />
-                    </div>
-                  </>
+                  <div key={item._id}>
+                    <CartItem {...item} />
+                    <hr />
+                  </div>
                 ))}
             </div>
           </div>
-          <div>
+          <div className="cart-btm-container">
             <div className="nv-you-may-like">
               <p>You may also like</p>
               <Carousel responsive={responsive}>
                 {rndData &&
-                  rndData.map((item, i) => {
+                  rndData.map((item) => {
                     return (
-                      <Link to={`/shop/${item._id}`}>
+                      <Link
+                        to={`/shop/${item._id}`}
+                        key={item._id}
+                        onClick={() => setIsOpen(false)}
+                      >
                         <CartRndItem
-                          key={i}
                           image={item.image}
                           name={item.name}
                           price={item.price}
@@ -222,6 +223,7 @@ const Navbar = () => {
                 <a
                   target="_blank"
                   href={`https://wa.me/971501077848?text=Hi TDS, I came from your website. I want to order ${cartItemDetails}`}
+                  className={cartTotal === 0 ? "disabled" : ""}
                 >
                   Checkout
                 </a>
@@ -233,7 +235,7 @@ const Navbar = () => {
       <div className="main-header">
         <div className={"logo"}>
           <NavLink to="/">
-            <img src={Logo} alt="logo" draggable={false} />
+            <img rel="preload" src={Logo} alt="logo" draggable={false} />
           </NavLink>
         </div>
       </div>

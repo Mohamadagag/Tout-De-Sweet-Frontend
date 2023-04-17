@@ -9,7 +9,9 @@ const CarouselComponent = () => {
   return (
     <Carousel interval={3000}>
       <Carousel.Item>
-        <img className="d-block w-100" src={Slide1} alt="First slide" />
+        <div className="carousel-img-container">
+          <img className="w-100" src={Slide1} alt="ENTREMET Slide" />
+        </div>
         <Carousel.Caption>
           <h3 className="carousel-title">ENTREMET</h3>
           <p className="carousel-description">
@@ -23,7 +25,7 @@ const CarouselComponent = () => {
       </Carousel.Item>
 
       <Carousel.Item>
-        <img className="d-block w-100" src={Slide3} alt="First slide" />
+        <img className="w-100" src={Slide3} alt="VIENNOISERIES Slide" />
         <Carousel.Caption>
           <h3 className="carousel-title">VIENNOISERIES</h3>
           <p className="carousel-description">
@@ -37,7 +39,7 @@ const CarouselComponent = () => {
       </Carousel.Item>
 
       <Carousel.Item>
-        <img className="d-block w-100" src={Slide2} alt="First slide" />
+        <img className="w-100" src={Slide2} alt="TARTS Slide" />
         <Carousel.Caption>
           <h3 className="carousel-title">TARTS</h3>
           <p className="carousel-description">

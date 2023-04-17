@@ -75,7 +75,7 @@ const ProductDetails = () => {
           <div className="product-details">
             <div className="image-description">
               <div className="image-only">
-                <img src={product.image} />
+                <img src={product.image} alt={product.name} />
               </div>
             </div>
             <div className="product-details-right">
