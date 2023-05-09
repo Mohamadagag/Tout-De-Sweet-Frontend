@@ -41,6 +41,7 @@
 }
 
 .right-side {
+  height: 400px;
   position: absolute;
   top: 5%;
   right: -75%;
