@@ -23,7 +23,7 @@ function App() {
       </Routes>
       <FloatingWhatsApp
         className="footer-whats"
-        phoneNumber="971501077848"
+        phoneNumber="#"
         accountName="Tout De Sweet"
         allowEsc
         allowClickAway

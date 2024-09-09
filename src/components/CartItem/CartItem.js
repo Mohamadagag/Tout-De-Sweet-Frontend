@@ -1,17 +1,26 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import "./CartItem.css";
 import { GrFormAdd } from "react-icons/gr";
-import { CartContext } from "../../context/CartContext";
 import { MdRemove } from "react-icons/md";
 import { TfiTrash } from "react-icons/tfi";
+import { useSelector, useDispatch } from "react-redux";
+
+import {
+  increaseCartQuantity,
+  decreaseCartQuantity,
+  removeItemFromCart,
+} from "../../redux/slices/cartSlice";
 
 const CartItem = ({ id, quantity }) => {
+  const dispatch = useDispatch();
   const [itemId, setItemId] = useState("");
   const someid = id;
 
-  const { IncreseCartQuantity, DecreseCartQuantity, removeItemFromCart } =
-    useContext(CartContext);
+  quantity = useSelector((state) => {
+    const item = state.cart.cartItems.find((item) => item.id === id);
+    return item ? item.quantity : 0;
+  });
 
   useEffect(() => {
     getData();
@@ -40,14 +49,14 @@ const CartItem = ({ id, quantity }) => {
         </span>
         <div className="cart-add-rm-container">
           <button
-            onClick={() => DecreseCartQuantity(id)}
+            onClick={() => dispatch(decreaseCartQuantity(id))}
             className="cart-icons"
           >
             <MdRemove />
           </button>
           <span>{quantity}</span>
           <button
-            onClick={() => IncreseCartQuantity(id)}
+            onClick={() => dispatch(increaseCartQuantity(id))}
             className="cart-icons"
           >
             <GrFormAdd className="cart-icons" />
@@ -56,7 +65,7 @@ const CartItem = ({ id, quantity }) => {
         <div className="remove-cart-item">
           <TfiTrash
             className="remove-cart-item-icon"
-            onClick={() => removeItemFromCart(id)}
+            onClick={() => dispatch(removeItemFromCart(id))}
           />
         </div>
       </div>

@@ -1,13 +1,12 @@
-import { useContext, useEffect } from "react";
 import "./Cart.css";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { CartContext } from "../../context/CartContext";
+import { useSelector } from "react-redux";
 
 export default function Cart({ handleClick }) {
-  const { cartItems } = useContext(CartContext);
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
@@ -17,8 +16,6 @@ export default function Cart({ handleClick }) {
       padding: "0 4px",
     },
   }));
-
-  useEffect(() => {}, [cartItems]);
 
   function getTotalQuantity(cartItems) {
     let totalQuantity = 0;

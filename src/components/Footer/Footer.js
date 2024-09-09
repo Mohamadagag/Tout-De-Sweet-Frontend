@@ -12,16 +12,6 @@ import { BsTelephone } from "react-icons/bs";
 const Footer = () => {
   const [email, setEmail] = useState("");
 
-  const SubmitNewsletter = (e) => {
-    e.preventDefault();
-    const url =
-      "https://toutdesweet.us21.list-manage.com/subscribe/post-json?u=51b2d814c9608d64cc5a49e7b&amp;id=87cfbb4a9a&amp;f_id=009ca0e1f0";
-    jsonp(`${url}&EMAIL=${email}`, { param: "c" }, (_, data) => {
-      const { msg, result } = data;
-      alert(msg);
-    });
-  };
-
   const currentYear = new Date().getFullYear();
 
   return (
@@ -31,7 +21,7 @@ const Footer = () => {
           <h5>CONTACT US</h5>
           <div>
             <p>
-              <a href="mailto:info@toutdesweet.ae" className="change">
+              <a href="#" className="change">
                 <span className="contact-icon">
                   <AiOutlineMail />
                 </span>
@@ -39,48 +29,36 @@ const Footer = () => {
               </a>
             </p>
             <p>
-              <a href="tel:+971 43264473" className="change">
+              <a href="#" className="change">
                 <span className="contact-icon">
                   <BsTelephone />
                 </span>
-                +971 43264473
+                +971 432644324
               </a>
             </p>
 
             <p>
-              <a href="tel:+971 501077848" className="change">
+              <a href="#" className="change">
                 <span className="contact-icon">
                   <BsTelephone />
                 </span>
-                +971 501077848
+                +971 53423423
               </a>
             </p>
           </div>
           <div className="contact-icons">
             <div className="click-icon">
-              <a
-                href="https://www.facebook.com/toutdesweetae/"
-                rel="noreferrer"
-                target="_blank"
-              >
+              <a href="#" rel="noreferrer" target="_blank">
                 <FaFacebookF className="f-icon" />
               </a>
             </div>
             <div className="click-icon">
-              <a
-                href="https://www.instagram.com/toutdesweetae/"
-                rel="noreferrer"
-                target="_blank"
-              >
+              <a href="#" rel="noreferrer" target="_blank">
                 <AiOutlineInstagram className="i-icon" />
               </a>
             </div>
             <div className="click-icon">
-              <a
-                href="https://www.tiktok.com/@toutdesweet.ae"
-                rel="noreferrer"
-                target="_blank"
-              >
+              <a href="#" rel="noreferrer" target="_blank">
                 <TbBrandTiktok className="t-icon" />
               </a>
             </div>
@@ -107,7 +85,7 @@ const Footer = () => {
         </div>
 
         <div className="fourth-div">
-          <form method="post" onSubmit={SubmitNewsletter}>
+          <form method="post">
             <h5>NEWSLETTER</h5>
             <input
               placeholder="Email..."
@@ -131,9 +109,9 @@ const Footer = () => {
             Copyright © {currentYear} Tout De Sweet all rights reserved.
           </p>
           <p>
-            Empowered by{" "}
-            <a href="http://www.advertcommunications.com/" target="_blank">
-              Advert Communications
+            Made by{" "}
+            <a href="https://mohamadagag.vercel.app/" target="_blank">
+              Mohamad Agag
             </a>
           </p>
         </div>

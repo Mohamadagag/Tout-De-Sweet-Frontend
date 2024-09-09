@@ -18,9 +18,16 @@ import pic1 from "../../assets/pic1.png";
 import pic2 from "../../assets/pic2.png";
 import pic3 from "../../assets/pic3.png";
 import pic4 from "../../assets/pic4.png";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchProductsPending,
+  fetchProductsFailed,
+  fetchProductsFulfilled,
+} from "../../redux/slices/lastProductsSlice";
 
 const Home = () => {
-  const [product, setProduct] = useState([]);
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.lastProducts.products);
 
   const responsive = {
     superLargeDesktop: {
@@ -46,13 +53,14 @@ const Home = () => {
   }, []);
 
   const getLastProducts = async () => {
-    const res = await axios.get(
-      "https://tout-de-sweet-backend.vercel.app/api/products/last"
-    );
+    fetchProductsPending();
     try {
-      setProduct(res.data.response);
+      const res = await axios.get(
+        "https://tout-de-sweet-backend.vercel.app/api/products/last"
+      );
+      dispatch(fetchProductsFulfilled(res.data.response));
     } catch (error) {
-      console.log(error);
+      dispatch(fetchProductsFailed(error));
     }
   };
 
@@ -78,19 +86,20 @@ const Home = () => {
         <div>
           <div className="home-grid">
             <Carousel responsive={responsive}>
-              {product.map((product) => {
-                return (
-                  <div key={product._id}>
-                    <Link to={`/shop/${product._id}`}>
-                      <HomeProduct
-                        image={product.image[0]}
-                        name={product.name}
-                        price={product.price}
-                      />
-                    </Link>
-                  </div>
-                );
-              })}
+              {products &&
+                products.map((product) => {
+                  return (
+                    <div key={product._id}>
+                      <Link to={`/shop/${product._id}`}>
+                        <HomeProduct
+                          image={product.image[0]}
+                          name={product.name}
+                          price={product.price}
+                        />
+                      </Link>
+                    </div>
+                  );
+                })}
             </Carousel>
           </div>
         </div>

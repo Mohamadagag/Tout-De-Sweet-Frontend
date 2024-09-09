@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Product from "../../components/product/Product";
 import Footer from "../../components/Footer/Footer";
@@ -7,14 +7,20 @@ import "./Shop.css";
 import Navbar from "../../components/Navbar/Navbar";
 import HomeSkeletonGrid from "../../components/product/HomeSkeletonGrid";
 import { VscSearch } from "react-icons/vsc";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchProductsPending,
+  fetchProductsFulfilled,
+  fetchProductsFailed,
+} from "../../redux/slices/productsSlice";
 
 const Shop = () => {
-  const [product, setProduct] = useState([]);
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("");
   const [active, setActive] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const dispatch = useDispatch();
+  const { products, loading } = useSelector((state) => state.products);
 
   useEffect(() => {
     getProducts();
@@ -22,14 +28,14 @@ const Shop = () => {
   }, [category]);
 
   const getProducts = async () => {
-    const res = await axios.get(
-      `https://tout-de-sweet-backend.vercel.app/api/products?cat=${category}`
-    );
+    dispatch(fetchProductsPending());
     try {
-      setProduct(res.data.response);
-      setIsLoaded(true);
+      const res = await axios.get(
+        `https://tout-de-sweet-backend.vercel.app/api/products?cat=${category}`
+      );
+      dispatch(fetchProductsFulfilled(res.data.response));
     } catch (error) {
-      console.log(error);
+      fetchProductsFailed(error);
     }
   };
 
@@ -44,7 +50,7 @@ const Shop = () => {
     }
   };
 
-  const filteredProducts = product.filter((product) => {
+  const filteredProducts = products.filter((product) => {
     return product.name
       .toLocaleLowerCase()
       .includes(searchTerm.toLocaleLowerCase());
@@ -95,7 +101,7 @@ const Shop = () => {
             </div>
           </div>
         </div>
-        {isLoaded ? (
+        {!loading ? (
           <div className="ss-container">
             <div className="search-box">
               <input
@@ -113,7 +119,7 @@ const Shop = () => {
         ) : null}
 
         <div className="res-sec">
-          {isLoaded ? (
+          {!loading ? (
             <div className="product-grid">
               {filteredProducts.map((product) => {
                 return (

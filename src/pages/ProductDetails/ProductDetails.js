@@ -1,7 +1,6 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
-import { CartContext } from "../../context/CartContext";
 import { Link, useParams } from "react-router-dom";
 import { GrFormAdd } from "react-icons/gr";
 import { MdRemove } from "react-icons/md";
@@ -10,13 +9,35 @@ import Carousel from "react-multi-carousel";
 import axios from "axios";
 import HomeProduct from "../../components/HomeProduct/HomeProduct";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchProductItemPending,
+  fetchProductItemFailed,
+  fetchProductItemFulfilled,
+} from "../../redux/slices/productItemSlice";
+
+import {
+  randomProductsPending,
+  randomProductsFulfilled,
+  randomProductsFailed,
+} from "../../redux/slices/radnomProductsSlice";
+
+import {
+  increaseCartQuantity,
+  decreaseCartQuantity,
+  getItemQuantity,
+} from "../../redux/slices/cartSlice";
+
 const ProductDetails = () => {
-  const { IncreseCartQuantity, DecreseCartQuantity, getItemQuantity } =
-    useContext(CartContext);
-  const [product, setProduct] = useState([]);
-  const [data, setData] = useState([]);
   const { id } = useParams();
-  const quantity = getItemQuantity(id);
+  const dispatch = useDispatch();
+  const product = useSelector((state) => state.product.productItem);
+  const data = useSelector((state) => state.random.products);
+
+  const quantity = useSelector((state) => {
+    const item = state.cart.cartItems.find((item) => item.id === id);
+    return item ? item.quantity : 0;
+  });
 
   useEffect(() => {
     getData();
@@ -24,24 +45,26 @@ const ProductDetails = () => {
   }, [id]);
 
   const getData = async () => {
-    const res = await axios.get(
-      `https://tout-de-sweet-backend.vercel.app/api/products/${id}`
-    );
+    dispatch(fetchProductItemPending());
     try {
-      setProduct(res.data.response);
-    } catch (err) {
-      console.log(err);
+      const res = await axios.get(
+        `https://tout-de-sweet-backend.vercel.app/api/products/${id}`
+      );
+      dispatch(fetchProductItemFulfilled(res.data.response));
+    } catch (error) {
+      dispatch(fetchProductItemFailed(error));
     }
   };
 
   const getRndData = async () => {
-    const res = await axios.get(
-      `https://tout-de-sweet-backend.vercel.app/api/products/randomfive`
-    );
+    dispatch(randomProductsPending());
     try {
-      setData(res.data.response);
-    } catch (err) {
-      console.log(err);
+      const res = await axios.get(
+        `https://tout-de-sweet-backend.vercel.app/api/products/randomfive`
+      );
+      dispatch(randomProductsFulfilled(res.data.response));
+    } catch (error) {
+      dispatch(randomProductsFailed());
     }
   };
 
@@ -91,14 +114,14 @@ const ProductDetails = () => {
                 <h5>Add to cart : </h5>
                 <div className="add-rm-container">
                   <button
-                    onClick={() => DecreseCartQuantity(id)}
+                    onClick={() => dispatch(decreaseCartQuantity(id))}
                     className="cart-icons"
                   >
                     <MdRemove />
                   </button>
                   <span>{quantity}</span>
                   <button
-                    onClick={() => IncreseCartQuantity(id)}
+                    onClick={() => dispatch(increaseCartQuantity(id))}
                     className="cart-icons"
                   >
                     <GrFormAdd />

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../../assets/Logo-without-background.png";
 import { Link, NavLink } from "react-router-dom";
 import Cart from "../Cart/Cart";
@@ -8,17 +8,17 @@ import CartRndItem from "../CartRndItem/CartRndItem";
 import Carousel from "react-multi-carousel";
 import CartItem from "../CartItem/CartItem";
 import { GrFormClose } from "react-icons/gr";
-import { CartContext } from "../../context/CartContext";
 import { BsTelephone } from "react-icons/bs";
 import { AiOutlineInstagram, AiOutlineMail } from "react-icons/ai";
 import { TbBrandTiktok } from "react-icons/tb";
 import { FaFacebookF } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [products, setProducts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const { cartItems } = useContext(CartContext);
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const [rndData, setRndData] = useState([]);
 
   window.onscroll = () => {
@@ -114,7 +114,7 @@ const Navbar = () => {
         <div className="promotion-container">
           <div className="promotion-section-numbers">
             <p>
-              <a href="mailto:info@toutdesweet.ae">
+              <a href="#">
                 <span>
                   <AiOutlineMail className="promotion-icons" />
                 </span>
@@ -123,7 +123,7 @@ const Navbar = () => {
             </p>
 
             <p className="second-number">
-              <a href="tel:+971 501077848">
+              <a href="#">
                 <span>
                   <BsTelephone className="promotion-icons" />
                 </span>
@@ -134,29 +134,17 @@ const Navbar = () => {
 
           <div className="contact-icons">
             <div>
-              <a
-                href="https://www.facebook.com/toutdesweetae/"
-                rel="noreferrer"
-                target="_blank"
-              >
+              <a href="#" rel="noreferrer" target="_blank">
                 <FaFacebookF className="promotion-icon" />
               </a>
             </div>
             <div className="click-icon">
-              <a
-                href="https://www.instagram.com/toutdesweetae/"
-                rel="noreferrer"
-                target="_blank"
-              >
+              <a href="#" rel="noreferrer" target="_blank">
                 <AiOutlineInstagram className="promotion-tiktok-icon promotion-icon" />
               </a>
             </div>
             <div className="click-icon">
-              <a
-                href="https://www.tiktok.com/@toutdesweet.ae"
-                rel="noreferrer"
-                target="_blank"
-              >
+              <a href="#" rel="noreferrer" target="_blank">
                 <TbBrandTiktok className="promotion-tiktok-icon promotion-icon" />
               </a>
             </div>
@@ -222,7 +210,7 @@ const Navbar = () => {
               <div className="checkout-container">
                 <a
                   target="_blank"
-                  href={`https://wa.me/971501077848?text=Hi TDS, I came from your website. I want to order ${cartItemDetails}`}
+                  href={`https://wa.me/#?text=Hi TDS, I came from your website. I want to order ${cartItemDetails}`}
                   className={cartTotal === 0 ? "disabled" : ""}
                 >
                   Checkout
