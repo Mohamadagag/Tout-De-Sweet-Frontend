@@ -2,10 +2,8 @@ import "./Footer.css";
 import { FaFacebookF } from "react-icons/fa";
 import { TbBrandTiktok } from "react-icons/tb";
 import { AiOutlineInstagram } from "react-icons/ai";
-import LogoAndCards from "../../assets/Logo-and-cards.png";
 import { Link } from "react-router-dom";
-import jsonp from "jsonp";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsTelephone } from "react-icons/bs";
 

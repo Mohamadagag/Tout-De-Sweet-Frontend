@@ -25,7 +25,6 @@ import {
 import {
   increaseCartQuantity,
   decreaseCartQuantity,
-  getItemQuantity,
 } from "../../redux/slices/cartSlice";
 
 const ProductDetails = () => {
