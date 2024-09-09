@@ -49,7 +49,11 @@ const Breadcrumb = () => {
               {onlyLetters(param) ? param : name}
             </Typography>
           ) : (
-            <Link key={param} onClick={() => navigate(routeTo)}>
+            <Link
+              className="hover:underline"
+              key={param}
+              onClick={() => navigate(routeTo)}
+            >
               {param}
             </Link>
           );
