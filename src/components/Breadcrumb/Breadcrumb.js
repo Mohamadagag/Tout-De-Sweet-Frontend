@@ -50,7 +50,7 @@ const Breadcrumb = () => {
             </Typography>
           ) : (
             <Link
-              className="hover:underline"
+              className="hover:cursor-pointer"
               key={param}
               onClick={() => navigate(routeTo)}
             >
