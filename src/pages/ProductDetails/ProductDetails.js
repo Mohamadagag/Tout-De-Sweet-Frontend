@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import { Link, useParams } from "react-router-dom";
@@ -10,6 +10,8 @@ import axios from "axios";
 import HomeProduct from "../../components/HomeProduct/HomeProduct";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import { useDispatch, useSelector } from "react-redux";
+import { CiHeart } from "react-icons/ci";
+
 import {
   fetchProductItemPending,
   fetchProductItemFailed,
@@ -27,16 +29,21 @@ import {
   decreaseCartQuantity,
 } from "../../redux/slices/cartSlice";
 
+import { toggleWishListItem } from "../../redux/slices/wishListSlice";
+
 const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product.productItem);
   const data = useSelector((state) => state.random.products);
+  const wishListItems = useSelector((state) => state.wish.wishListItems);
 
   const quantity = useSelector((state) => {
     const item = state.cart.cartItems.find((item) => item.id === id);
     return item ? item.quantity : 0;
   });
+
+  const existingItem = wishListItems.find((item) => item.id === id);
 
   useEffect(() => {
     getData();
@@ -126,6 +133,16 @@ const ProductDetails = () => {
                     <GrFormAdd />
                   </button>
                 </div>
+                <button
+                  className="w-btn-container"
+                  onClick={() => dispatch(toggleWishListItem(id))}
+                >
+                  {existingItem ? (
+                    <CiHeart className="wish-btnn" />
+                  ) : (
+                    <CiHeart className="wish-btn" />
+                  )}
+                </button>
               </div>
             </div>
           </div>

@@ -12,19 +12,21 @@ import { BsTelephone } from "react-icons/bs";
 import { AiOutlineInstagram, AiOutlineMail } from "react-icons/ai";
 import { TbBrandTiktok } from "react-icons/tb";
 import { FaFacebookF } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import {
+  fetchProductsPending,
+  fetchProductsFulfilled,
+  fetchProductsFailed,
+} from "../../redux/slices/productsSlice";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [products, setProducts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const cartItems = useSelector((state) => state.cart.cartItems);
   const [rndData, setRndData] = useState([]);
-
-  window.onscroll = () => {
-    setIsScrolled(window.pageYOffset === 0 ? false : true);
-    return () => (window.onscroll = null);
-  };
+  const products = useSelector((state) => state.products.products);
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
   const openCart = () => {
     setIsOpen(!isOpen);
@@ -33,16 +35,27 @@ const Navbar = () => {
   useEffect(() => {
     getProducts();
     getRndData();
+
+    const handleScroll = () => {
+      setIsScrolled(window.pageYOffset !== 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [cartItems]);
 
   const getProducts = async () => {
-    const res = await axios.get(
-      `https://tout-de-sweet-backend.vercel.app/api/products/allproducts`
-    );
+    dispatch(fetchProductsPending());
     try {
-      setProducts(res.data.response);
+      const res = await axios.get(
+        `https://tout-de-sweet-backend.vercel.app/api/products/allproducts`
+      );
+      dispatchEvent(fetchProductsFulfilled(res.data.response));
     } catch (error) {
       console.log(error);
+      dispatchEvent(fetchProductsFailed(error.message));
     }
   };
 
@@ -57,7 +70,14 @@ const Navbar = () => {
     return total;
   }
 
-  const cartTotal = calculateCartTotal(products, cartItems);
+  const cartTotal = cartItems.reduce((total, cartItem) => {
+    const product = products.find((product) => product._id === cartItem.id);
+    console.log("Products:", products);
+    return product ? total + product.price * cartItem.quantity : total;
+    console.log("Cart Items:", cartItems);
+    console.log("Cart Total Calculation:", cartTotal);
+  }, 0);
+
   const totalPrice = cartItems.reduce((acc, cartItem) => {
     const product = products.find((product) => product._id === cartItem.id);
     if (product) {
@@ -67,16 +87,10 @@ const Navbar = () => {
     }
   }, 0);
 
-  const cartItemDetails = cartItems
-    .map((cartItem) => {
-      const product = products.find((product) => product._id === cartItem.id);
-      if (product) {
-        return " " + cartItem.quantity + " " + product.name;
-      } else {
-        return null;
-      }
-    })
-    .filter((cartItem) => cartItem !== null);
+  const cartItemDetails = cartItems.map((cartItem) => {
+    const product = products.find((product) => product._id === cartItem.id);
+    return product ? `${cartItem.quantity} ${product.name}` : null;
+  });
 
   const getRndData = async () => {
     const res = await axios.get(
@@ -170,13 +184,12 @@ const Navbar = () => {
             </div>
             <hr />
             <div className="cart-products">
-              {cartItems &&
-                cartItems.map((item) => (
-                  <div key={item._id}>
-                    <CartItem {...item} />
-                    <hr />
-                  </div>
-                ))}
+              {cartItems.map((item) => (
+                <div key={item._id}>
+                  <CartItem {...item} />
+                  <hr />
+                </div>
+              ))}
             </div>
           </div>
           <div className="cart-btm-container">

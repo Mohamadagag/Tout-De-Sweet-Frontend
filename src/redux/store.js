@@ -4,6 +4,7 @@ import productsSlice from "./slices/productsSlice";
 import productItemSlice from "./slices/productItemSlice";
 import radnomProductsSlice from "./slices/radnomProductsSlice";
 import cartSlice from "./slices/cartSlice";
+import wishListSlice from "./slices/wishListSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     lastProducts: lastProductsSlice,
     random: radnomProductsSlice,
     cart: cartSlice,
+    wish: wishListSlice,
   },
 });
