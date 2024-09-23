@@ -254,6 +254,15 @@ nav ul li a {
   margin-right: 10px;
 }
 
+.wishList-btn {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.wishList {
+  margin-right: 10px;
+}
+
 @media only screen and (max-width: 424px) {
   .show-top-section {
     display: none;

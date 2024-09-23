@@ -13,6 +13,7 @@ import { AiOutlineInstagram, AiOutlineMail } from "react-icons/ai";
 import { TbBrandTiktok } from "react-icons/tb";
 import { FaFacebookF } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
+import { CiHeart } from "react-icons/ci";
 
 import {
   fetchProductsPending,
@@ -166,6 +167,9 @@ const Navbar = () => {
         </div>
       </div>
       <div className="top-header">
+        <a href="/wishList" className="wishList">
+          <CiHeart className="wishList-btn" />
+        </a>
         <div>
           <Cart handleClick={openCart} />
         </div>
