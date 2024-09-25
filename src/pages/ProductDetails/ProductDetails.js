@@ -11,6 +11,7 @@ import HomeProduct from "../../components/HomeProduct/HomeProduct";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import { useDispatch, useSelector } from "react-redux";
 import { CiHeart } from "react-icons/ci";
+import Skeleton from "@mui/material/Skeleton";
 
 import {
   fetchProductItemPending,
@@ -35,6 +36,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product.productItem);
+  const isLoaded = useSelector((state) => state.product.isLoaded);
   const data = useSelector((state) => state.random.products);
   const wishListItems = useSelector((state) => state.wish.wishListItems);
 
@@ -52,6 +54,7 @@ const ProductDetails = () => {
 
   const getData = async () => {
     dispatch(fetchProductItemPending());
+
     try {
       const res = await axios.get(
         `https://tout-de-sweet-backend.vercel.app/api/products/${id}`
@@ -98,51 +101,84 @@ const ProductDetails = () => {
       <Navbar />
       <>
         <div className="details-container">
-          <div className="shop-breadcrumb">
+          <div className="shop-breadcrumb" style={{ marginBottom: "1rem" }}>
             <Breadcrumb />
           </div>
           <div className="product-details">
             <div className="image-description">
               <div className="image-only">
-                <img src={product.image} alt={product.name} />
+                {!isLoaded ? (
+                  <img src={product.image} alt={product.name} />
+                ) : (
+                  <Skeleton
+                    variant="rectangular"
+                    width={450}
+                    height={300}
+                  ></Skeleton>
+                )}
               </div>
             </div>
             <div className="product-details-right">
               <div className="description-price">
-                <h2>{product.name}</h2>
+                {!isLoaded ? (
+                  <h2>{product.name}</h2>
+                ) : (
+                  <Skeleton width={350} height={50}></Skeleton>
+                )}
                 <div className="seperate"></div>
-                <p className="product-desc">{product.description}</p>
+                {!isLoaded ? (
+                  <p className="product-desc">{product.description}</p>
+                ) : (
+                  <>
+                    <Skeleton width={500} height={30}></Skeleton>
+                    <Skeleton width={500} height={30}></Skeleton>
+                  </>
+                )}
                 {product.price === 0 ? null : (
-                  <p>Price: AED {product.price}.00</p>
+                  <div>
+                    {!isLoaded ? (
+                      <p>
+                        Price: AED <span>{product.price}</span>.00
+                      </p>
+                    ) : (
+                      <Skeleton width={130} height={30}></Skeleton>
+                    )}
+                  </div>
                 )}
               </div>
               <div className="sum-container">
-                <h5>Add to cart : </h5>
-                <div className="add-rm-container">
-                  <button
-                    onClick={() => dispatch(decreaseCartQuantity(id))}
-                    className="cart-icons"
-                  >
-                    <MdRemove />
-                  </button>
-                  <span>{quantity}</span>
-                  <button
-                    onClick={() => dispatch(increaseCartQuantity(id))}
-                    className="cart-icons"
-                  >
-                    <GrFormAdd />
-                  </button>
-                </div>
-                <button
-                  className="w-btn-container"
-                  onClick={() => dispatch(toggleWishListItem(id))}
-                >
-                  {existingItem ? (
-                    <CiHeart className="wish-btnn" />
-                  ) : (
-                    <CiHeart className="wish-btn" />
-                  )}
-                </button>
+                {!isLoaded ? (
+                  <>
+                    <h5>Add to cart : </h5>
+                    <div className="add-rm-container">
+                      <button
+                        onClick={() => dispatch(decreaseCartQuantity(id))}
+                        className="cart-icons"
+                      >
+                        <MdRemove />
+                      </button>
+                      <span>{quantity}</span>
+                      <button
+                        onClick={() => dispatch(increaseCartQuantity(id))}
+                        className="cart-icons"
+                      >
+                        <GrFormAdd />
+                      </button>
+                    </div>
+                    <button
+                      className="w-btn-container"
+                      onClick={() => dispatch(toggleWishListItem(id))}
+                    >
+                      {existingItem ? (
+                        <CiHeart className="wish-btnn" />
+                      ) : (
+                        <CiHeart className="wish-btn" />
+                      )}
+                    </button>
+                  </>
+                ) : (
+                  <Skeleton width={300} height={30}></Skeleton>
+                )}
               </div>
             </div>
           </div>

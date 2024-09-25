@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   productItem: {},
-  loading: false,
+  isLoaded: false,
   success: false,
   error: null,
 };
@@ -12,15 +12,15 @@ const productItemSlice = createSlice({
   initialState,
   reducers: {
     fetchProductItemPending: (state) => {
-      state.loading = true;
+      state.isLoaded = true;
     },
     fetchProductItemFulfilled: (state, action) => {
-      state.loading = false;
+      state.isLoaded = false;
       state.success = true;
       state.productItem = action.payload;
     },
     fetchProductItemFailed: (state, action) => {
-      state.loading = false;
+      state.isLoaded = false;
       state.error = action.payload;
     },
   },
