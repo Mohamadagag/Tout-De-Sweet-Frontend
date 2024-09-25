@@ -36,6 +36,7 @@ const Navbar = () => {
   useEffect(() => {
     getProducts();
     getRndData();
+    console.log(cartItems);
 
     const handleScroll = () => {
       setIsScrolled(window.pageYOffset !== 0);
@@ -53,10 +54,10 @@ const Navbar = () => {
       const res = await axios.get(
         `https://tout-de-sweet-backend.vercel.app/api/products/allproducts`
       );
-      dispatchEvent(fetchProductsFulfilled(res.data.response));
+      dispatch(fetchProductsFulfilled(res.data.response));
     } catch (error) {
       console.log(error);
-      dispatchEvent(fetchProductsFailed(error.message));
+      dispatch(fetchProductsFailed(error.message));
     }
   };
 
@@ -73,10 +74,8 @@ const Navbar = () => {
 
   const cartTotal = cartItems.reduce((total, cartItem) => {
     const product = products.find((product) => product._id === cartItem.id);
-    console.log("Products:", products);
+    console.log(products)
     return product ? total + product.price * cartItem.quantity : total;
-    console.log("Cart Items:", cartItems);
-    console.log("Cart Total Calculation:", cartTotal);
   }, 0);
 
   const totalPrice = cartItems.reduce((acc, cartItem) => {

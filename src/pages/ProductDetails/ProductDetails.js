@@ -12,6 +12,7 @@ import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import { useDispatch, useSelector } from "react-redux";
 import { CiHeart } from "react-icons/ci";
 import Skeleton from "@mui/material/Skeleton";
+import Swal from "sweetalert2";
 
 import {
   fetchProductItemPending,
@@ -39,6 +40,7 @@ const ProductDetails = () => {
   const isLoaded = useSelector((state) => state.product.isLoaded);
   const data = useSelector((state) => state.random.products);
   const wishListItems = useSelector((state) => state.wish.wishListItems);
+  const isClicked = useSelector((state) => state.wish.wishListItems);
 
   const quantity = useSelector((state) => {
     const item = state.cart.cartItems.find((item) => item.id === id);
@@ -74,6 +76,32 @@ const ProductDetails = () => {
       dispatch(randomProductsFulfilled(res.data.response));
     } catch (error) {
       dispatch(randomProductsFailed());
+    }
+  };
+
+  const handleWish = (dispatch, id) => {
+    dispatch(toggleWishListItem(id));
+
+    if (existingItem) {
+      Swal.fire({
+        title: "Removed From Wishlist",
+        icon: "success",
+        timer: 2000,
+        timerProgressBar: true,
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+      });
+    } else {
+      Swal.fire({
+        title: "Added To Wishlist",
+        icon: "success",
+        timer: 2000,
+        timerProgressBar: true,
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+      });
     }
   };
 
@@ -167,7 +195,7 @@ const ProductDetails = () => {
                     </div>
                     <button
                       className="w-btn-container"
-                      onClick={() => dispatch(toggleWishListItem(id))}
+                      onClick={() => handleWish(dispatch, id)}
                     >
                       {existingItem ? (
                         <CiHeart className="wish-btnn" />
