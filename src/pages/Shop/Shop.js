@@ -128,6 +128,7 @@ const Shop = () => {
                       image={product.image[0]}
                       name={product.name}
                       price={product.price}
+                      isLoading={loading}
                     />
                   </Link>
                 );

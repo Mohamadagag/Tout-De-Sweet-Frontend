@@ -36,7 +36,6 @@ const Navbar = () => {
   useEffect(() => {
     getProducts();
     getRndData();
-    console.log(cartItems);
 
     const handleScroll = () => {
       setIsScrolled(window.pageYOffset !== 0);
@@ -74,7 +73,6 @@ const Navbar = () => {
 
   const cartTotal = cartItems.reduce((total, cartItem) => {
     const product = products.find((product) => product._id === cartItem.id);
-    console.log(products)
     return product ? total + product.price * cartItem.quantity : total;
   }, 0);
 

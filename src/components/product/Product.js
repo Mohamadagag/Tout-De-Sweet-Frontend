@@ -1,10 +1,14 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import HomeProductSkeleton from "./HomeProductSkeleton";
 import "./Product.css";
 
-const Product = ({ name, price, image, category }) => {
-  return (
+const Product = ({ name, price, image, isLoading }) => {
+  return isLoading ? (
+    <HomeProductSkeleton />
+  ) : (
     <div className="shop-product">
       <div className="shop-product-image">
-        <img src={image} alt={name} />
+        <LazyLoadImage width={200} height={150} src={image} alt={name} />
       </div>
       <span className="product-name">{name}</span>
       {price === 0 ? null : (
